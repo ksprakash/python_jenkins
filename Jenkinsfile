@@ -10,12 +10,12 @@
                             extensions                       : scm.extensions + [
                                     [$class: 'CleanBeforeCheckout'],
                                     [$class: 'SubmoduleOption', disableSubmodules: false, recursiveSubmodules: true, reference: '', trackingSubmodules: false],
-                                    [$class: 'RelativeTargetDirectory', relativeTargetDir: projectName]
+                                    [$class: 'RelativeTargetDirectory', relativeTargetDir: 'NewProjectName']
                             ],
                             submoduleCfg                     : [],
                             userRemoteConfigs                : scm.userRemoteConfigs])
 
-                    releaseTools = release.configure(scm: GIT_VARS, credentialsId: USERPASS_GITHUB_ID)
+                    releaseTools = release.configure(scm: GIT_VARS, credentialsId: 'github-credentials')
                 }
             }
     }
