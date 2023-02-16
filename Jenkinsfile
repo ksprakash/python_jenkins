@@ -1,4 +1,6 @@
- stages {
+ pipeline 
+ {
+    stages {
 
     stage('Prep') {
             steps {
@@ -19,4 +21,5 @@
                 }
             }
     }
+ }
  }
