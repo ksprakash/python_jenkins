@@ -9,5 +9,10 @@
                 }
             }
     }
+    docker.image('httpd').inside {
+
+        sh "ls -la"
+        sh "hostname"
+    }
  }
  }
