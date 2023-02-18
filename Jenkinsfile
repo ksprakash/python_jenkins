@@ -12,7 +12,7 @@ node {
     }
     stage("ChangeLog"){
     def changeSet = currentBuild.changeSets
-    println $changeSet
+    println changeSet
     }
     stage("Build"){
       //  ws("/var/jenkins_home/workspace/customizedWorkspace"){
