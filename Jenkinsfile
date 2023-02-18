@@ -20,7 +20,7 @@ node {
             for (int j=0; j < entries.length; j++){
                 def entry = entries[j]
                 println entry
-                println entry.msg
+                println "msg: " + entry.msg
     }
     }
     }
