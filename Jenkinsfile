@@ -1,22 +1,28 @@
- pipeline {
-    agent any
-    stages {
-
-    stage('Prep') {
-            steps {
-                script {
-                   println "This is the Prep stage"
-                }
-            }
+node {
+    stage("Checkout"){
+        checkout([
+        $class: 'GitSCM',
+        branches: [["name":"origin/master"]],
+        doGenerateSubmoduleConfigurations: scm.doGenerateSubmoduleConfigurations,
+        extensions: scm.extensions,
+        userRemoteConfigs: [["url": "https://github.com/ksprakash/python_jenkins"]],
+        depth: 1
+    ])
     }
-    stage('build'){
-        steps{
-    docker.image('httpd').inside {
-
-        sh "ls -la"
-        sh "hostname"
+    stage("Build"){
+        ws("/var/jenkins_home/workspace/customizedWorkspace"){
+        def workspace = pwd()
+        println "WorkSPace" + ":" +workspace
+        docker.withRegistry('https://registry-1.docker.io','docker-credentials'){
+        def image = docker.image("vijayasurya/python:v2.1")
+        image.pull()
+        image.inside('-e astage=Dev',{
+            sh "pwd"
+            sh "ls /data"
+            sh 'echo "Stage: $astage"'
+            
+        })
+        }
+        }
     }
-    }
-    }
- }
- }
+}
