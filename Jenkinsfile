@@ -38,5 +38,11 @@ node {
         })
       //  }
      //   }
+        stash name: "docker_artifacts", includes: "**/*.py"
+    }
+    stage("Unstash"){
+        unstash 'docker_artifacts'
+        sh 'cat app.py'
+      
     }
 }
