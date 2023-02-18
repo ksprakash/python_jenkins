@@ -15,7 +15,6 @@ node {
         println "WorkSPace" + ":" +workspace
       //  docker.withRegistry('https://registry-1.docker.io','docker-credentials'){
         def image = docker.build("vijayasurya/python:v2.2")
-        image.pull()
         image.inside('-e astage=Dev',{
             sh "pwd"
           
