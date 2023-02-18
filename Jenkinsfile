@@ -11,7 +11,7 @@ node {
         
     }
     stage("ChangeLog"){
-    def changeSet = currentbBuild.changeSets
+    def changeSet = currentBuild.changeSets
     println $changeSet
     }
     stage("Build"){
