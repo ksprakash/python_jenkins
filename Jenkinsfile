@@ -41,8 +41,10 @@ node {
         stash name: "docker_artifacts", includes: "**/*.py"
     }
     stage("Unstash"){
+        def image = docker.image('nginx')
+        image.inside{
         unstash 'docker_artifacts'
-        sh 'cat app.py'
-      
+        sh 'ls *.py'
+        }
     }
 }
