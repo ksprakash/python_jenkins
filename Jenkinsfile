@@ -15,7 +15,7 @@ node {
     println changeSet.size()
         for(int i=0; i < changeSet.size();i++){
             println changeSet[i].getClass().getName()
-            ArrayList entries = changeSet[i].items
+            def entries = changeSet[i].items
             println entries
             for (int j=0; j < entries.length; j++){
                 def entry = entries[j]
