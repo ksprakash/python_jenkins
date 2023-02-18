@@ -12,7 +12,10 @@ node {
     }
     stage("ChangeLog"){
     def changeSet = currentBuild.changeSets
-    println changeSet
+    println changeSet.size()
+        for(int i; i < changeSet.size();i++){
+            println changeSet[i].getClass().getName()
+            println changeSet[i].items
     }
     stage("Build"){
       //  ws("/var/jenkins_home/workspace/customizedWorkspace"){
