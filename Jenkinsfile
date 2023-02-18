@@ -13,9 +13,10 @@ node {
     stage("ChangeLog"){
     def changeSet = currentBuild.changeSets
     println changeSet.size()
-        for(int i; i < changeSet.size();i++){
+        for(int i=0; i < changeSet.size();i++){
             println changeSet[i].getClass().getName()
-            println changeSet[i].items
+            ArrayList entries = changeSet[i].items
+            println entries
     }
     }
     stage("Build"){
