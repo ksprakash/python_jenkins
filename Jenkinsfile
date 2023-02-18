@@ -45,6 +45,8 @@ node {
         image.inside{
         unstash 'docker_artifacts'
         sh 'ls *.py'
+        sh 'cat app.py'
+        sh 'ls -la /usr/share/nginx'
         }
     }
 }
