@@ -23,6 +23,7 @@ node {
                 println entry.msg
     }
     }
+    }
     stage("Build"){
       //  ws("/var/jenkins_home/workspace/customizedWorkspace"){
         def workspace = pwd()
