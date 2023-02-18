@@ -8,6 +8,11 @@ node {
         userRemoteConfigs: [["url": "https://github.com/ksprakash/python_jenkins"]],
         depth: 1
     ])
+        
+    }
+    stage("ChangeLog"){
+    def changeSet = currentbBuild.changeSets
+    println $changeSet
     }
     stage("Build"){
       //  ws("/var/jenkins_home/workspace/customizedWorkspace"){
