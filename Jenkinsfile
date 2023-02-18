@@ -17,6 +17,10 @@ node {
             println changeSet[i].getClass().getName()
             ArrayList entries = changeSet[i].items
             println entries
+            for (int j=0; j < entries.length; j++){
+                def entry = entries[j]
+                println entry
+                println entry.msg
     }
     }
     stage("Build"){
